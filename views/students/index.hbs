@@ -1,0 +1,20 @@
+<ul>
+{{#each students as |student|}}
+  <li>
+    <p>
+    <a href="/students/{{student.name}}">{{student.name}}</a>
+    </p>
+    <p>
+      {{student.age}}
+    </p>
+     {{student.sex}}
+    </p>
+    <p>
+     {{student.score}}
+    </p>
+  </li>
+{{/each}}
+</ul>
+<p>{{page}}. oldal</p>
+<p><a href="/students?page={{next}}">Következő ({{next}}. oldal)</a></p>
+<p><a href="/students?page={{previous}}">Előző ({{previous}}. oldal)</a></p>
