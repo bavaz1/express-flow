@@ -12,4 +12,10 @@
     </p>
 </ul>
 
-<h2><a href="/students/">Index</a></h2>
+<p><a href="/students/{{student.name}}/update">Módosítás</a></p>
+
+<form action="/students/{{student.name}}?_method=DELETE" method="post">
+  <input type="submit" value="Törlés">
+</form>
+
+<p><a href="/students">Vissza</a></p>

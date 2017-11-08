@@ -1,20 +1,51 @@
-<ul>
-{{#each students as |student|}}
-  <li>
-    <p>
-    <a href="/students/{{student.name}}">{{student.name}}</a>
-    </p>
-    <p>
-      {{student.age}}
-    </p>
-     {{student.sex}}
-    </p>
-    <p>
-     {{student.score}}
-    </p>
-  </li>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Név</th>
+      <th>Kor</th>
+      <th>Nem</th>
+      <th>Pontszám</th>
+      <th>Műveletek</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each students as |student|}}
+      <tr>
+        <td>{{student.name}}</td>
+        <td>{{student.age}}</td>
+        <td>{{student.sex}}</td>
+        <td>{{student.score}}</td>
+        <td>
+          <a href="/students/{{student.name}}">Mutat</a>
+          <p><a href="/students/{{student.name}}/update">Módosítás</a></p>
+          <form action="/students/{{student.name}}?_method=DELETE" method="post">
+              <button type="submit" class="btn btn-danger">Törlés</button>
+          </form>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+  
+</table>
+
+
+<p><a href="/students/create">Új tanuló hozzáadása</a></p>
+
+{{#if possibleNext}}
+  <p><a href="/students?page={{next}}">Következő ({{next}}. oldal)</a></p>
+{{/if}}
+{{#if possiblePrev}}
+  <p><a href="/students?page={{previous}}">Előző ({{previous}}. oldal)</a></p>
+{{/if}}
+
+{{#each pages}}
+
+ {{#currentPage this ../page}}
+
+     <span style="font-weight: bold">{{this}} </span>
+    {{else}}
+      <a href="/students?page={{../this}}">{{../this}}</a>
+
+ {{/currentPage}}
+
 {{/each}}
-</ul>
-<p>{{page}}. oldal</p>
-<p><a href="/students?page={{next}}">Következő ({{next}}. oldal)</a></p>
-<p><a href="/students?page={{previous}}">Előző ({{previous}}. oldal)</a></p>
