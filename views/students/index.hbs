@@ -1,6 +1,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Név</th>
       <th>Kor</th>
       <th>Nem</th>
@@ -11,14 +12,19 @@
   <tbody>
     {{#each students as |student|}}
       <tr>
+        <td>{{student.id}}</td>
         <td>{{student.name}}</td>
         <td>{{student.age}}</td>
-        <td>{{student.sex}}</td>
+        {{#if student.sex}}
+          <td>Nő</td>
+        {{else}}
+          <td>Férfi</td>
+        {{/if}}
         <td>{{student.score}}</td>
         <td>
-          <a href="/students/{{student.name}}">Mutat</a>
-          <p><a href="/students/{{student.name}}/update">Módosítás</a></p>
-          <form action="/students/{{student.name}}?_method=DELETE" method="post">
+          <a href="/students/{{student.id}}">Mutat</a>
+          <p><a href="/students/{{student.id}}/update">Módosítás</a></p>
+          <form action="/students/{{student.id}}?_method=DELETE" method="post">
               <button type="submit" class="btn btn-danger">Törlés</button>
           </form>
         </td>

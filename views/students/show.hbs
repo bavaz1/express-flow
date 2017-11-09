@@ -5,16 +5,20 @@
     <p>
       {{student.age}}
     </p>
-     {{student.sex}}
+      {{#if student.sex}}
+        Nő
+      {{else}}
+        Férfi
+      {{/if}}
     </p>
     <p>
      {{student.score}}
     </p>
 </ul>
 
-<p><a href="/students/{{student.name}}/update">Módosítás</a></p>
+<p><a href="/students/{{student.id}}/update">Módosítás</a></p>
 
-<form action="/students/{{student.name}}?_method=DELETE" method="post">
+<form action="/students/{{student.id}}?_method=DELETE" method="post">
   <input type="submit" value="Törlés">
 </form>
 

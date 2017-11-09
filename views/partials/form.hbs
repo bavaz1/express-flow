@@ -1,18 +1,21 @@
 <div class="form-group">
     <label for="name">Név</label>
-    <input type="text" name="name" id="name" class="form-control" required>
+    <input type="text" name="name" id="name" class="form-control" value="{{student.name}}" required>
 </div>
 <div class="form-group">
     <label for="age">Kor</label>
-    <input type="number" name="age" id="age" class="form-control" required>
+    <input type="number" name="age" id="age" class="form-control" value="{{student.age}}" required>
 </div>
     <div class="form-group">
     <label for="sex">Nem</label>
-    <input type="text" name="sex" id="sex" class="form-control" required>
+    <select class="form-control" name="sex" id="sex" value="{{student.sex}}" required>
+        <option value="0">Férfi</option>
+        <option value="1">Nő</option>
+    </select>
 </div>
     <div class="form-group">
     <label for="score">Pontszám</label>
-    <input type="number" name="score" id="score" class="form-control" required>
+    <input type="number" name="score" id="score" class="form-control" value="{{student.score}}" required>
 </div>
 
 <input type="submit" value="Küldés" class="btn btn-default">
